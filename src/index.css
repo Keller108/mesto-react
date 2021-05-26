@@ -1,13 +1,65 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/*Общие стили*/
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@import url("../src/vendor/normalize.css");
+@import url("../src/vendor/fonts/inter/inter.css");
+@import url("../src/blocks/body/body.css");
+@import url("../src/blocks/page/page.css");
+@import url("../src/blocks/hover-transparency/hover-transparency.css");
+
+/*Стили Popup*/
+
+@import url("../src/blocks/popup/popup.css");
+@import url("../src/blocks/popup/_opened/popup_opened.css");
+@import url("../src/blocks/popup/_type/popup_type_lightbox.css");
+@import url("../src/blocks/popup/__container.css/popup__container.css");
+@import url("../src/blocks/popup/__close-btn/popup__close-btn.css");
+@import url("../src/blocks/popup/__title/popup__title.css");
+@import url("../src/blocks/popup/__title/_place_popup-confirm/popup__title_place_popup-confirm.css");
+@import url("../src/blocks/form/form.css");
+@import url("../src/blocks/form/__input/form__input.css");
+@import url("../src/blocks/form/__input/_type/form__input_type_error.css");
+@import url("../src/blocks/form/__input-error/_active/form__input-error_active.css");
+@import url("../src/blocks/form/__submit-btn/form__submit-btn.css");
+@import url("../src/blocks/form/__submit-btn/_disabled/form__submit-btn_disabled.css");
+@import url("../src/blocks/popup/__image-wrapper/popup__image-wrapper.css");
+@import url("../src/blocks/popup/__image/popup__image.css");
+@import url("../src/blocks/popup/__caption/popup__caption.css");
+@import url('../src/blocks/submit-btn/submit-btn.css');
+
+/*Стили Header*/
+
+@import url("../src/blocks/header/header.css");
+@import url("../src/blocks/logo/logo.css");
+
+/*Стили Profile*/
+
+@import url("../src/blocks/profile/profile.css");
+@import url("../src/blocks/profile/__content-wrapper/profile__content-wrapper.css");
+@import url("../src/blocks/profile/__avatar-edit-btn/profile__avatar-edit-btn.css");
+@import url("../src/blocks/profile/__avatar-overlay/profile__avatar-overlay.css");
+@import url("../src/blocks/profile/__info/profile__info.css");
+@import url("../src/blocks/profile/__info-top-container/profile__info-top-container.css");
+@import url("../src/blocks/profile/__name/profile__name.css");
+@import url("../src/blocks/profile/__edit-button/profile__edit-button.css");
+@import url("../src/blocks/profile/__description/profile__description.css");
+@import url("../src/blocks/profile/__add-button/profile__add-button.css");
+
+/*Стили Elements*/
+
+@import url("../src/blocks/elements/elements.css");
+@import url("../src/blocks/elements/__cards/elements__cards.css");
+@import url("../src/blocks/elements/__card/elements__card.css");
+@import url("../src/blocks/elements/__delete-btn/elements__delete-btn.css");
+@import url("../src/blocks/elements/__delete-btn/_visible/elements__delete-btn_visible.css");
+@import url("../src/blocks/elements/__card-image/elements__card-image.css");
+@import url("../src/blocks/elements/__place-name-wrapper/elements__place-name-wrapper.css");
+@import url("../src/blocks/elements/__place-name/elements__place-name.css");
+@import url("../src/blocks/elements/__btn-like-wrapper/elements__btn-like-wrapper.css");
+@import url("../src/blocks/elements/__like-btn/elements__like-btn.css");
+@import url("../src/blocks/elements/__likes-counter/elements__likes-counter.css");
+@import url("../src/blocks/elements/__like-btn/_is_active/elements__like-btn_is_active.css");
+
+/*Стили Footer*/
+
+@import url("../src/blocks/footer/footer.css");
+@import url("../src/blocks/footer/__copyright/footer__copyright.css");
