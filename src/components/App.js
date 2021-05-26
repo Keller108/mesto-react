@@ -2,12 +2,36 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 
+const popup = document.querySelector('.popup');
+const lightbox = document.querySelector('.popup_type_lightbox');
+const popupConfirm = document.querySelector('.popup_type_confirm');
+const btnEditAvatar = document.querySelector('.profile__avatar-edit-btn');
+
+const handleEditAvatarClick = function() {
+    const popupUpdateAvatatar = document.querySelector('.popup_type_update-avatar');
+    popupUpdateAvatatar.classList.add('popup_opened')
+}
+
+const handleEditProfileClick = function() {
+    const popupEditProfile = document.querySelector('.popup_type_profile');
+    popupEditProfile.classList.add('popup_opened')
+}
+
+const handleAddPlaceClick = function() {
+    const popupAddCard = document.querySelector('.popup_type_card-add');
+    popupAddCard.classList.add('popup_opened')
+}
+
 function App() {
   return (
     <div className="App">
         <div className="page">
             <Header />
-            <Main />
+            <Main 
+            onEditAvatar={handleEditAvatarClick}
+            onSetProfile={handleEditProfileClick}
+            onAddCard={handleAddPlaceClick}
+            /> 
             <Footer />
             </div>
             <div className="popup popup_type_profile">
