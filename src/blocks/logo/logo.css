@@ -1,0 +1,17 @@
+.logo {
+    width: 142px;
+    height: 35px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (max-width: 460px) {
+    .logo {
+        width: 104px;
+        height: 25px;
+    }
+}
