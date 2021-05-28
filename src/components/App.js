@@ -1,6 +1,8 @@
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import PopupWithForm from './PopupWithForm';
+import ImagePopup from './ImagePopup';
 
 const popup = document.querySelector('.popup');
 const lightbox = document.querySelector('.popup_type_lightbox');
@@ -22,15 +24,19 @@ const handleAddPlaceClick = function() {
     popupAddCard.classList.add('popup_opened')
 }
 
+// ОБРАБОТЧИКИ ОТКРЫТИЯ, ЗАКРЫТИЯ ПОПАПОВ
+
+
+
 function App() {
   return (
     <div className="App">
         <div className="page">
             <Header />
             <Main 
-            onEditAvatar={handleEditAvatarClick}
-            onSetProfile={handleEditProfileClick}
-            onAddCard={handleAddPlaceClick}
+                onEditAvatar={handleEditAvatarClick}
+                onEditProfile={handleEditProfileClick}
+                onAddPlace={handleAddPlaceClick}
             /> 
             <Footer />
             </div>

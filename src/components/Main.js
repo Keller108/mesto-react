@@ -1,4 +1,4 @@
-function Main({onEditAvatar, onSetProfile, onAddCard}) {
+function Main({onEditAvatar, onEditProfile, onAddPlace}) {
     return (
         <main>
             <section className="profile">
@@ -18,7 +18,7 @@ function Main({onEditAvatar, onSetProfile, onAddCard}) {
                         className="profile__edit-button hover-transparency"
                         type="button"
                         aria-label="OpenPopup"
-                        onClick={onSetProfile}>
+                        onClick={onEditProfile}>
                         </button>
                      </div>
                      <p className="profile__description" />
@@ -28,7 +28,7 @@ function Main({onEditAvatar, onSetProfile, onAddCard}) {
                 className="profile__add-button hover-transparency"
                 type="button"
                 aria-label="Add"
-                onClick={onAddCard}>
+                onClick={onAddPlace}>
                 </button>
             </section>
                 <section className="elements">
