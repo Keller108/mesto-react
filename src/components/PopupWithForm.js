@@ -1,6 +1,6 @@
-function PopupWithForm ({title, name, children, text}) {
+function PopupWithForm ({title, name, children, text, isOpen}) {
     return (
-        <div className={`popup popup_type_${name}`}>
+        <div className={isOpen ? `popup popup_type_${name} popup_opened` : `popup popup_type_${name}`}>
              <div className="popup__container">
                 <button
                     className="popup__close-btn hover-transparency"
