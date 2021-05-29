@@ -10,6 +10,7 @@ function App() {
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
     const [isConfirmPopupOpen, setIsConfirmPopupOpen] = useState(false);
+    const [selectedCard, setSelectedCard] = useState({isOpened: false});
 
 
 // ОБРАБОТЧИКИ ОТКРЫТИЯ, ЗАКРЫТИЯ ПОПАПОВ
@@ -30,11 +31,20 @@ function App() {
         setIsConfirmPopupOpen(!isConfirmPopupOpen)
     }
 
+    const handleCardClick = ({link, name, isOpened}) => {
+        setSelectedCard({
+            link,
+            name,
+            isOpened: !isOpened
+        })
+    }
+
     const closeAllPopups = () => {
         setIsEditProfilePopupOpen(false)
         setIsAddPlacePopupOpen(false)
         setIsEditAvatarPopupOpen(false)
         setIsConfirmPopupOpen(false)
+        setSelectedCard({isOpened: false})
     }
 
   return (
@@ -45,10 +55,14 @@ function App() {
                 onEditAvatar={handleEditAvatarClick}
                 onEditProfile={handleEditProfileClick}
                 onAddPlace={handleAddPlaceClick}
+                onCardClick={handleCardClick}
             /> 
             <Footer />
         </div>
-        <ImagePopup />
+        <ImagePopup 
+            onClose={closeAllPopups}
+            card={selectedCard}
+        />
         <PopupWithForm
             name='profile'
             isOpen={isEditProfilePopupOpen}

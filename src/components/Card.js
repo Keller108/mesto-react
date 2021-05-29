@@ -14,7 +14,7 @@ function Card({card, onCardClick}) {
                 aria-label="Delete">
             </button>
             <img
-                onCardClick={handleClick}
+                onClick={handleClick}
                 src={card.link}
                 alt={card.name}
                 className="elements__card-image"
