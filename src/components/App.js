@@ -4,6 +4,7 @@ import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
+import api from '../utils/api';
 
 // const popup = document.querySelector('.popup');
 // const lightbox = document.querySelector('.popup_type_lightbox');
@@ -13,7 +14,8 @@ import ImagePopup from './ImagePopup';
 function App() {
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
-    const [isEditAvatarPopupOpen, setSsEditAvatarPopupOpen] = useState(false);
+    const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+    const [isConfirmPopupOpen, setIsConfirmPopupOpen] = useState(false);
 
 
 // ОБРАБОТЧИКИ ОТКРЫТИЯ, ЗАКРЫТИЯ ПОПАПОВ
@@ -27,13 +29,18 @@ function App() {
     }
 
     const handleEditAvatarClick = () => {
-        setSsEditAvatarPopupOpen(!isEditAvatarPopupOpen)
+        setIsEditAvatarPopupOpen(!isEditAvatarPopupOpen)
+    }
+
+    const handleConfirmClick = () => {
+        setIsConfirmPopupOpen(!isConfirmPopupOpen)
     }
 
     const closeAllPopups = () => {
         setIsEditProfilePopupOpen(false)
         setIsAddPlacePopupOpen(false)
-        setSsEditAvatarPopupOpen(false)
+        setIsEditAvatarPopupOpen(false)
+        setIsConfirmPopupOpen(false)
     }
 
   return (
@@ -47,6 +54,7 @@ function App() {
             /> 
             <Footer />
         </div>
+        <ImagePopup />
         <PopupWithForm
             name='profile'
             isOpen={isEditProfilePopupOpen}
@@ -130,6 +138,13 @@ function App() {
                 className="form__avatar-url-error input-error"
             />
         </PopupWithForm>
+        <PopupWithForm
+            name='confirm'
+            isOpen={isConfirmPopupOpen}
+            onClose={closeAllPopups}
+            title='Вы уверены?'
+            buttonText='Да'
+        />
             {/* <div className="popup popup_type_profile">
                 <div className="popup__container">
                 <button className="popup__close-btn hover-transparency" type="button" aria-label="Close" />

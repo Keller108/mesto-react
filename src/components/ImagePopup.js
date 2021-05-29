@@ -1,4 +1,4 @@
-function ImagePopup() {
+function ImagePopup({place}) {
     return (
         <div
             className="popup popup_type_lightbox">
@@ -9,7 +9,9 @@ function ImagePopup() {
                 <img
                     className="popup__image" src="/" alt="." />
                 <figcaption
-                    className="popup__caption" />
+                    className="popup__caption">
+                    {place}                        
+                 </figcaption>                       
                 </figure>
             </div>
     )
