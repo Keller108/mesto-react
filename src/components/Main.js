@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import api from '../utils/api';
 import Card from './Card';
 
-function Main({onEditAvatar, onEditProfile, onAddPlace}) {
+function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
 
     const [userName, setUserInfo] = useState("");
     const [userDescription, setUserDesciption] = useState("");
