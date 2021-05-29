@@ -1,3 +1,4 @@
+import {useEffect, useState} from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -31,6 +32,8 @@ function App() {
 
     const closeAllPopups = () => {
         setIsEditProfilePopupOpen(false)
+        setIsAddPlacePopupOpen(false)
+        setSsEditAvatarPopupOpen(false)
     }
 
   return (
@@ -45,11 +48,88 @@ function App() {
             <Footer />
         </div>
         <PopupWithForm
+            name='profile'
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}
-            text={Go}
+            title='Редактировать профиль'
+            buttonText='Редактировать'
+        >    
+            <input
+                className="form__input form__input_el_name"
+                id="form__name"
+                type="text"
+                name="name"
+                placeholder="Имя"
+                minLength={2}
+                maxLength={40}
+                required
+                />
+            <span
+            className="form__name-errorinput-error"/>
+            <input
+                className="form__input form__input_el_descr"
+                id="form__job"
+                type="text"
+                name="about"
+                placeholder="Вид деятельности"
+                minLength={2}
+                maxLength={200}
+                required
+            />
+            <span
+                className="form__job-error input-error"
+            />
+        </PopupWithForm>
 
-        />
+        <PopupWithForm
+            name='card-add'
+            isOpen={isAddPlacePopupOpen}
+            onClose={closeAllPopups}
+            title='Новое место'
+            buttonText='Создать'
+        >
+            <input
+                className="form__input form__input_el_place"
+                id="form__place" type="text"
+                name="name" placeholder="Название"
+                minLength={2}
+                maxLength={30}
+                required
+                />
+            <span
+                className="form__place-error input-error"
+            />
+            <input
+                className="form__input form__input_el_pic-link"
+                id="form__url"
+                type="url"
+                name="link"
+                placeholder="Ссылка на картинку"
+                required
+            />
+            <span
+                className="form__url-error input-error"
+            />
+        </PopupWithForm>
+
+        <PopupWithForm
+            name='update-avatar'
+            isOpen={isEditAvatarPopupOpen}
+            onClose={closeAllPopups}
+            title='Обновить аватар'
+            buttonText='Сохранить'
+        >
+            <input
+                className="form__input form__input_ava_pic-link"
+                id="form__avatar-url"
+                type="url"
+                name="avatar" placeholder="Ссылка на картинку"
+                required
+            />
+            <span
+                className="form__avatar-url-error input-error"
+            />
+        </PopupWithForm>
             {/* <div className="popup popup_type_profile">
                 <div className="popup__container">
                 <button className="popup__close-btn hover-transparency" type="button" aria-label="Close" />
