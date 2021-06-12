@@ -3,18 +3,10 @@ import api from '../utils/api';
 import Card from './Card';
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
-function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
+function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick, onCardLike, cards}) {
 
     const { name, about, avatar } = useContext(CurrentUserContext);
-    const [cards, setCards] = useState([]);
-
-    useEffect(() => {
-        api.getAllCards() 
-        .then((data) => {
-            setCards(data)
-        })         
-        .catch(err => console.log(err))   
-    }, [])
+    
 
     return (
         <main>
@@ -66,6 +58,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
                                 card={card}
                                 onCardClick={onCardClick}
                                 key={card._id}
+                                onCardLike={onCardLike}
                             />       
                         ))}
                     </ul>
