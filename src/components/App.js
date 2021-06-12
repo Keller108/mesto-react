@@ -101,7 +101,7 @@ function App() {
                 onCardClick={handleCardClick}
                 onCardLike={handleCardLike}
                 cards={cards}
-                onCardDelete={onCardDelete}
+                onCardDelete={handleCardDelete}
             /> 
             <Footer />
         </div>
