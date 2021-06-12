@@ -1,7 +1,7 @@
 import {useContext} from 'react';
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
-function Card({card, onCardClick, onCardLike}) {
+function Card({card, onCardClick, onCardLike, onCardDelete}) {
     const currentUser = useContext(CurrentUserContext)
 
     const handleClick = () => {
@@ -10,6 +10,10 @@ function Card({card, onCardClick, onCardLike}) {
     
     const handleCardLike = () => {
         onCardLike(card)
+    }
+
+    const handleDeleteClick = () => {
+        onCardDelete(card)
     }
 
     // Определяем, являемся ли мы владельцем текущей карточки с лайком
@@ -33,7 +37,9 @@ function Card({card, onCardClick, onCardLike}) {
             <button
                 className="elements__delete-btn"
                 type="button"
-                aria-label="Delete">
+                aria-label="Delete"
+                onCardDelete={handleDeleteClick}
+            >
             </button>
             <img
                 onClick={handleClick}

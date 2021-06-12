@@ -48,24 +48,18 @@ class Api {
             .then(this._checkResponse)
     }
 
-    //Ставим лайк
-    putLike(cardId) {
-        const dataObject = {
-            method: 'PUT',
-            ...this._config
-        }
-        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, dataObject)
-            .then(this._checkResponse)
-    }
-
-    //Удаляем лайк
-    removeLike(cardId) {
-        const dataObject = {
+    //Обновляем лайк
+    changeLikeCardStatus(cardId, isLiked) {
+        const removeLike = {
             method: 'DELETE',
             ...this._config
         }
-        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, dataObject)
-            .then(this._checkResponse)
+        const updateLike = {
+            method: 'PUT',
+            ...this._config
+        }
+        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, isLiked ? removeLike : updateLike)
+        .then(this._checkResponse)
     }
 
     updateAvatar(data) {

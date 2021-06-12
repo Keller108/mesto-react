@@ -6,7 +6,6 @@ import {CurrentUserContext} from '../contexts/CurrentUserContext';
 function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick, onCardLike, cards}) {
 
     const { name, about, avatar } = useContext(CurrentUserContext);
-    
 
     return (
         <main>
