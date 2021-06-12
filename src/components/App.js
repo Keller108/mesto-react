@@ -6,6 +6,7 @@ import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 import api from '../utils/api';
+import CurrentUserContext from '../contexts/CurrentUserContext';
 
 function App() {
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -14,7 +15,7 @@ function App() {
     const [isConfirmPopupOpen, setIsConfirmPopupOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState({isOpened: false});
     
-    const [currentUser, setCurrentUser] = useState("")
+    const [currentUser, setCurrentUser] = useState({})
 
     useEffect(() => {
         api.getInfo()
@@ -60,6 +61,7 @@ function App() {
     }
 
   return (
+  <CurrentUserContext.Provider value={currentUser}>    
     <div className="App">
         <div className="page">
             <Header />
@@ -166,6 +168,7 @@ function App() {
             buttonText='Да'
         />
     </div>
+    </CurrentUserContext.Provider>    
   );
 }
 
