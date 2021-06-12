@@ -1,9 +1,11 @@
+
 import {useEffect, useState} from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
+import api from '../utils/api';
 
 function App() {
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -11,6 +13,16 @@ function App() {
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
     const [isConfirmPopupOpen, setIsConfirmPopupOpen] = useState(false);
     const [selectedCard, setSelectedCard] = useState({isOpened: false});
+    
+    const [currentUser, setCurrentUser] = useState("")
+
+    useEffect(() => {
+        api.getInfo()
+        .then((data) => {
+            setCurrentUser(data)
+        })
+        .catch(err => console.log(err))
+    }, [])
 
 
 // ОБРАБОТЧИКИ ОТКРЫТИЯ, ЗАКРЫТИЯ ПОПАПОВ

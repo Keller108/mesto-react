@@ -7,7 +7,7 @@ function Card({card, onCardClick}) {
     return (
         <li
             className="elements__card"
-            >
+        >
             <button
                 className="elements__delete-btn"
                 type="button"
