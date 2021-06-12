@@ -45,4 +45,6 @@ function Card({card, onCardClick}) {
     )
 }
 
+// const isLiked = card.likes.some(i => i._id === currentUser._id);
+
 export default Card

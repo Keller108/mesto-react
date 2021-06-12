@@ -1,23 +1,14 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import api from '../utils/api';
 import Card from './Card';
+import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
 function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
 
-    const [userName, setUserInfo] = useState("");
-    const [userDescription, setUserDesciption] = useState("");
-    const [userAvatar, setUserAvatar] =  useState("");
+    const { name, about, avatar } = useContext(CurrentUserContext);
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
-        api.getInfo()
-        .then(({avatar, about, name}) => {
-            setUserInfo(name) 
-            setUserDesciption(about)
-            setUserAvatar(avatar)
-        })
-        .catch(err => console.log(err))    
-
         api.getAllCards() 
         .then((data) => {
             setCards(data)
@@ -34,7 +25,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
                         type="button"
                         aria-label="Avatar Edit Button"
                         onClick={onEditAvatar}
-                        style={{ backgroundImage: `url(${userAvatar})` }}
+                        style={{ backgroundImage: `url(${avatar})` }}
                     >
                         <div
                             className="profile__avatar-overlay">
@@ -43,7 +34,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
                     <div className="profile__info ">
                      <div className="profile__info-top-container">
                         <h1 className="profile__name">
-                            {userName}
+                            {name}
                         </h1>    
                         <button
                             className="profile__edit-button hover-transparency"
@@ -56,7 +47,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
                      <p
                         className="profile__description"
                      >
-                        {userDescription}
+                        {about}
                     </p>                             
                     </div>
                 </div>
