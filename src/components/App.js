@@ -7,6 +7,7 @@ import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 import api from '../utils/api';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import EditProfilePopup from './EditProfilePopup';
 
 function App() {
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -50,6 +51,15 @@ function App() {
             name,
             isOpened: !isOpened
         })
+    }
+
+    function handleUpdateUser(userData) {
+        api.sendInfo(userData)
+        .then((data) => {
+            setCurrentUser(data)
+            closeAllPopups()
+        })
+        .catch(err => console.log(err));
     }
 
     const handleCardDelete = (card) => {
@@ -109,39 +119,11 @@ function App() {
             onClose={closeAllPopups}
             card={selectedCard}
         />
-        <PopupWithForm
-            name='profile'
+        <EditProfilePopup
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}
-            title='Редактировать профиль'
-            buttonText='Редактировать'
-        >    
-            <input
-                className="form__input form__input_el_name"
-                id="form__name"
-                type="text"
-                name="name"
-                placeholder="Имя"
-                minLength={2}
-                maxLength={40}
-                required
-                />
-            <span
-            className="form__name-errorinput-error"/>
-            <input
-                className="form__input form__input_el_descr"
-                id="form__job"
-                type="text"
-                name="about"
-                placeholder="Вид деятельности"
-                minLength={2}
-                maxLength={200}
-                required
-            />
-            <span
-                className="form__job-error input-error"
-            />
-        </PopupWithForm>
+            onUpdateUser={handleUpdateUser}
+        />
 
         <PopupWithForm
             name='card-add'

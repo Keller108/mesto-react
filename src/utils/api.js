@@ -17,11 +17,11 @@ class Api {
     }
 
     // Отправка информации профиля
-    sendInfo(inputsValue) {
+    sendInfo(userData) {
         const dataObject = {
             method: 'PATCH',
             ...this._config,
-            body: JSON.stringify(inputsValue),
+            body: JSON.stringify(userData),
         }
         return fetch(`${this._baseUrl}/users/me`, dataObject)
             .then(this._checkResponse)
