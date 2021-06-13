@@ -20,7 +20,7 @@ function PopupWithForm ({title, name, children, buttonText, isOpen, onClose, han
                 {children}
                 <button
                     className="submit-btn"
-                    type="button">
+                    type="submit">
                     {buttonText}
                 </button>
             </form>
