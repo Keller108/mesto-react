@@ -8,6 +8,7 @@ import ImagePopup from './ImagePopup';
 import api from '../utils/api';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import EditProfilePopup from './EditProfilePopup';
+import EditAvatarPopup from './EditAvatarPopup';
 
 function App() {
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -156,24 +157,10 @@ function App() {
             />
         </PopupWithForm>
 
-        <PopupWithForm
-            name='update-avatar'
+        <EditAvatarPopup
             isOpen={isEditAvatarPopupOpen}
             onClose={closeAllPopups}
-            title='Обновить аватар'
-            buttonText='Сохранить'
-        >
-            <input
-                className="form__input form__input_ava_pic-link"
-                id="form__avatar-url"
-                type="url"
-                name="avatar" placeholder="Ссылка на картинку"
-                required
-            />
-            <span
-                className="form__avatar-url-error input-error"
-            />
-        </PopupWithForm>
+        />
         <PopupWithForm
             name='confirm'
             isOpen={isConfirmPopupOpen}
