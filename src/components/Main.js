@@ -1,9 +1,8 @@
-import {useState, useEffect, useContext} from 'react';
-import api from '../utils/api';
+import {useContext} from 'react';
 import Card from './Card';
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
-function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick, onCardLike, cards}) {
+function Main({onEditAvatar, onEditProfile, onCardClick, onCardLike, cards, onCardDelete, onAddPlace}) {
 
     const { name, about, avatar } = useContext(CurrentUserContext);
 
@@ -43,10 +42,10 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick, onCardLike,
                     </div>
                 </div>
                 <button 
+                    onClick={onAddPlace}
                     className="profile__add-button hover-transparency"
                     type="button"
                     aria-label="Add"
-                    onClick={onAddPlace}
                 >
                 </button>
             </section>
@@ -58,6 +57,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick, onCardLike,
                                 onCardClick={onCardClick}
                                 key={card._id}
                                 onCardLike={onCardLike}
+                                onCardDelete={onCardDelete}
                             />       
                         ))}
                     </ul>

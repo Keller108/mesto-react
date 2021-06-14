@@ -3,7 +3,7 @@ function PopupWithForm ({title, name, children, buttonText, isOpen, onClose, han
         <div className={isOpen ? `popup popup_type_${name} popup_opened` : `popup popup_type_${name}`}>
              <div className="popup__container">
                 <button
-                    onClick = {onClose}
+                    onClick={onClose}
                     className="popup__close-btn hover-transparency"
                     type="button"
                     aria-label="Close">   
