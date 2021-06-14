@@ -35,7 +35,7 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
             className="elements__card"
         >
             <button
-                className="elements__delete-btn"
+                className={cardDeleteButtonClassName}
                 type="button"
                 aria-label="Delete"
                 onClick={handleDeleteClick}

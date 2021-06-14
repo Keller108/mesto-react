@@ -49,7 +49,7 @@ function App() {
 
     const handleAddPlace = (data) => {
         api.uploadCard(data)
-        .then(newCard => {
+        .then((newCard) => {
             setCards([newCard, ...cards])
             closeAllPopups()
         })
