@@ -63,6 +63,16 @@ function App() {
         .catch(err => console.log(err));
     }
 
+    function handleUpdateAvatar(newAvatar) {
+        api.updateAvatar(newAvatar)
+        .then((data) => {
+            setCurrentUser(data)
+            closeAllPopups()
+        })
+        .catch(err => console.log(err))
+
+    }
+
     const handleCardDelete = (card) => {
         api.removeCard(card._id)
         .then(() => {
@@ -125,7 +135,11 @@ function App() {
             onClose={closeAllPopups}
             onUpdateUser={handleUpdateUser}
         />
-
+        <EditAvatarPopup
+            isOpen={isEditAvatarPopupOpen}
+            onClose={closeAllPopups}
+            onUpdateAvatar={handleUpdateAvatar}
+        />
         <PopupWithForm
             name='card-add'
             isOpen={isAddPlacePopupOpen}
@@ -156,11 +170,6 @@ function App() {
                 className="form__url-error input-error"
             />
         </PopupWithForm>
-
-        <EditAvatarPopup
-            isOpen={isEditAvatarPopupOpen}
-            onClose={closeAllPopups}
-        />
         <PopupWithForm
             name='confirm'
             isOpen={isConfirmPopupOpen}
